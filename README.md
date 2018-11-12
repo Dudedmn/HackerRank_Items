@@ -3,10 +3,10 @@ Code for HackerRank Problems
 
 Currently contains the following modules:
 
-#Challenges
+# Challenges
 
-##Sock Merchant
+## Sock Merchant
 
-##Counting Valleys
+## Counting Valleys
 
-##Electronics Store
+## Electronics Store
