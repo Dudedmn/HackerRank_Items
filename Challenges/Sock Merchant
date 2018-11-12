@@ -1,0 +1,53 @@
+//@author Daniel Yan
+//@date November 11th, 2018
+
+/*
+* @param int n - number of total socks
+* @param vector<int> ar - vector of socks
+* @returns int with number of sock pairs
+*/
+int sockMerchant(int n, vector<int> ar) {
+    //Int to find number of pairs
+    int numPairs = 0;
+    //Map to determine number of unique socks
+    //First int is sock int id, second int is sock count
+    map <int,int> uniqueSocks;
+    //Boolean for finding unique socks
+    bool seen;
+    //Iteraters through all socks in vector<int> ar
+    for(const auto & n : ar) {
+        //Seen is false first
+        seen = false;
+        //Iterates through entire map
+        for(const auto & s : uniqueSocks) {
+            //If the map has an equal int sock value, seen is true
+            if(n == s.second)
+                seen = true;
+        }
+        //If seen is fale, inser the int sock
+        if(seen == false)
+            //Initialize number of socks to 0 first
+            uniqueSocks.insert(make_pair(n , 0));
+    }
+     //Loop through vector<int> n 
+    for(const auto & n : ar){
+        //If n and the int sock value equal, increment sock count by one
+        for(auto s = uniqueSocks.begin(); s != uniqueSocks.end(); ++s) {
+            if(n == s->first) {
+                s->second++;
+            }
+        }
+    }
+    
+    //For all sock counts, divide by 2 to find number of pairs
+    for(const auto & s : uniqueSocks) {
+        numPairs += (s.second / 2);
+    }
+    
+    //Debugging for map
+     //Print out map
+        //for(const auto & s : uniqueSocks)  
+            //cout << s.first << " " << s.second << endl;
+    
+    return numPairs;
+}
