@@ -5,8 +5,8 @@ Currently contains the following modules:
 
 # Challenges
 
-## Sock Merchant
+**Sock Merchant**
 
-## Counting Valleys
+**Counting Valleys**
 
-## Electronics Store
+**Electronics Store**
