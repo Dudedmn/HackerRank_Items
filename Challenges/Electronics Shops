@@ -1,0 +1,35 @@
+
+//@author Daniel Yan
+//@date November 12, 2018
+/*
+ * @param vector<int> keyboards - vector holding ints for keyboard cost
+ * @param vector<int> drives - vector holding ints for drive cost
+ * @param int b - budget for overall cost
+ * @return int - highest possible cost below budget
+ */
+int getMoneySpent(vector<int> keyboards, vector<int> drives, int b) {
+    //Int to determine highest cost
+    int maxCost = 0; 
+    //Vector to store highest costs
+    vector<int> highestCost;
+        //Sorts vectors from least to greatest
+        sort(keyboards.begin(), keyboards.end());
+        sort(drives.begin(), drives.end());
+        //Reverse iterators
+        for(auto it = keyboards.rbegin(); it != keyboards.rend(); ++it){
+            for(auto dit = drives.rbegin(); dit != drives.rend(); ++dit) {
+                //Determine max cost from highest items
+                maxCost = ((*it) + (*dit));
+                //If the cost is less than or equal to budget, add to vector
+                if(maxCost <= b)
+                    highestCost.push_back(maxCost);
+            }
+        }
+    //If the vector has a size
+    if(highestCost.size() != 0)
+        //Max element is returned in the vector
+        return *max_element(highestCost.begin(), highestCost.end());
+    else  
+        //No max element was found
+        return -1;
+}
