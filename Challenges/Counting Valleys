@@ -1,0 +1,33 @@
+//@author Daniel Yan
+//@date November 11th, 2018
+/*
+* @param int n - length of string
+* @param string s - string containing directions
+* @returns int - number of valleys present
+* valleys are created when you go from below sealevel to sealevel
+*/
+int countingValleys(int n, string s) {
+//Prior level is the previous level, current is current
+//Valleys are the number of valleys
+int priorLevel = 0, currentLevel = 0, valleys = 0;
+    //For all characters in string s
+    for(auto c : s){
+        //If it's 'U' go up
+        if(c == 'U'){
+            //Set prior to previous level
+            priorLevel = currentLevel;
+            //Increment current
+            currentLevel++;
+            //If current is 0 and prior is -1, a valley is made
+                if(currentLevel == 0 && priorLevel == -1)
+                    valleys++;
+         }
+        //If it's 'D' go down
+        else if(c == 'D') {
+            priorLevel = currentLevel;
+            //Decrement current
+            currentLevel--;
+            }
+    }
+    return valleys;
+}
