@@ -11,3 +11,11 @@ Currently contains the following modules:
 **Counting Valleys**
 
 **Electronics Store**
+
+**Cats and a Mouse**
+
+**Jumping on Clouds**
+
+**Repeated Strings**
+
+
