@@ -1,0 +1,24 @@
+//@author Daniel Yan
+//@date November 12th, 2018
+/*
+* @param int x - position of catA
+* @param int y - position of catB
+* @param int z - position of mouse C
+* @return - string which animal wins the race
+*/
+string catAndMouse(int x, int y, int z) {
+    //Find absolute difference between cats and mouse
+int catADifference = abs(x - z), catBDifference = abs(y - z);
+    //Based on difference return respective winning animal
+    if(catADifference == catBDifference) {
+        return "Mouse C";
+    }
+    else if(catADifference > catBDifference) {
+        return "Cat B";
+    }
+    else {
+        return "Cat A";
+    }
+    
+
+}
