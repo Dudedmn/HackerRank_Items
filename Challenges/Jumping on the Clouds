@@ -1,0 +1,22 @@
+//@author Daniel Yan
+//@date November 12th, 2018
+/*
+ * @param vector<int> - containing 0s and 1s indicating valid clouds
+ * @returns int - minimal number of jumps needed
+*/
+int jumpingOnClouds(vector<int> c) {
+int jumpCount = 0;
+    for( int i = 0; i < c.size() - 1; ++i ){
+      //Check if a +2 jump is available
+        if(c[i + 2] != 1){
+            jumpCount++;
+            //The loop will increment twice
+            i++;
+        }
+        //Only +1 jump is available
+        else {
+            jumpCount++;
+        }
+    }
+    return jumpCount;
+}
