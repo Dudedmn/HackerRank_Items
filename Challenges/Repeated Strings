@@ -1,0 +1,18 @@
+//@author Daniel Yan
+//@date November 12th, 2018
+
+/*
+ * @param string s - string input containing 'a' or not
+ * @param long n - length of string input to consider
+ * @return long - number of 'a' found in the string
+*/
+long repeatedString(string s, long n) {
+//Uses the count algorithm
+    
+    long repeats = n / s.size();
+    //Finds the number of 'a' present in default strong multiplied by how times
+    //string is repeated
+return repeats * count(s.begin(), s.end(), 'a') +
+    //Truncating part of the string where length isn't a whole number
+    count(s.begin(), s.begin() + (n % s.size()), 'a');
+}
