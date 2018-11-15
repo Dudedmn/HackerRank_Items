@@ -1,0 +1,38 @@
+//@author Daniel Yan
+//@date November 14th, 2018
+/*
+ * @param vector<vector<int>> arr - 2D vector containing input for hourglass
+ * @param int leftPos - top left position of hourglass
+ * @param int col - current column index
+ * @return int - hourglass sum
+*/
+int makeHourglass(vector<vector<int>> arr, int leftPos, int col){
+    int hourSum = INT_MIN;
+    //Check if hourglass can be made
+    if((leftPos + 2) < arr.size() && (col + 2) < arr[0].size()){
+        //Top part of hourglass
+         hourSum = arr[leftPos][col] + arr[leftPos][col + 1] + arr[leftPos][col + 2] +
+        //Mid section of hourglass
+        arr[leftPos + 1][col + 1] +
+        //Lower section of hourglass
+        arr[leftPos + 2][col] + arr[leftPos + 2][col + 1] + arr[leftPos + 2][col + 2];
+    }
+    //If hourglass cannot be made, return INT_MIN
+    return hourSum;
+}
+/*
+ * @param vector<vector<int>> arr - 2D vector containing input for hourglass
+ * @return int - largest hourglass sum
+*/
+int hourglassSum(vector<vector<int>> arr) {
+vector<int> glassSums;
+    for(int i = 0; i < arr.size(); i++) {
+        for (int j = 0; j < arr[0].size(); j++) {
+            //Push all valid hourglass sums into the vector
+            if(makeHourglass(arr, i, j) != INT_MIN)
+                glassSums.push_back(makeHourglass(arr, i, j));
+        }
+    } 
+    //Return the max sum in the vector
+return *max_element(glassSums.begin(), glassSums.end());
+}
