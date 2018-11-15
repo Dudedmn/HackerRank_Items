@@ -18,4 +18,7 @@ Currently contains the following modules:
 
 **Repeated Strings**
 
+# Arrays
+
+**2D Array - DS**
 
